@@ -84,13 +84,15 @@ public final class SysArgs {
         for (int i = 0; i < argsArr.length; i++) {
             final char c = argsArr[i];
             if (c == '-') {
-                if (parsedOptions.containsKey(argsArr[i + 1])) {
-                    parsedOptions.replace(argsArr[i + 1], true);
-                    i++;
-                } else {
-                    System.out.println("Option " + c + "is not applicable");
-                    System.exit(1);
-                }
+                do {
+                    if (parsedOptions.containsKey(argsArr[i + 1])) {
+                        parsedOptions.replace(argsArr[i + 1], true);
+                        i++;
+                    } else {
+                        System.out.println("Option " + c + "is not applicable");
+                        System.exit(1);
+                    }
+                } while (!Character.isWhitespace(argsArr[i + 1]));
             } else if (c == ' ') {
                 continue;
             } else {
