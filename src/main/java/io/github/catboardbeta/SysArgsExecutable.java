@@ -3,6 +3,7 @@ package io.github.catboardbeta;
 import org.jetbrains.annotations.Contract;
 
 import java.util.HashMap;
+import java.util.TreeMap;
 
 /**
  * A part of the SysArgs project
@@ -18,13 +19,14 @@ public interface SysArgsExecutable {
      * Code to be run when {@link SysArgs#parseArgs()} is complete.
      */
     @Contract("null, _ -> fail; _, null -> fail;")
+    @SuppressWarnings("RedundantThrows")
     default void call(
             HashMap<
                     Character,
                     Boolean> options,
-            HashMap<
-                    Character,
-                    String> parameters
+            TreeMap<
+                                Character,
+                                String> parameters
     ) throws Throwable {
         throw new RequiresImplementationError("Classes implementing " +
                 "io.github.catboardbeta.SysArgsExecutable must implement " +

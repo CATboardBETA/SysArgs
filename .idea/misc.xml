@@ -3,10 +3,12 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
+  </component>
+  <component name="PWA">
+    <option name="wasEnabledAtLeastOnce" value="true" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="corretto-16" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />

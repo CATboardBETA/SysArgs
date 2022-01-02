@@ -1,1 +1,6 @@
-io/github/catboardbeta/App.class
+io\github\catboardbeta\SysArgs$Tuple.class
+io\github\catboardbeta\SysArgsExecutable.class
+io\github\catboardbeta\RequiresImplementationError.class
+testExample\Tester.class
+io\github\catboardbeta\SysArgs$ArgumentId.class
+io\github\catboardbeta\SysArgs.class
