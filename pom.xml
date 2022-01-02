@@ -6,7 +6,7 @@
 
   <groupId>io.github.catboardbeta</groupId>
   <artifactId>sysargs</artifactId>
-  <version>NONFUNCTIONAL-SNAPSHOT</version>
+  <version>PRE_ALPHA_1-SNAPSHOT</version>
 
   <name>sysargs</name>
   <url>https://catboardbeta.github.io</url>

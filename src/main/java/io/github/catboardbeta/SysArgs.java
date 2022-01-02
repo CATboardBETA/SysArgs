@@ -65,7 +65,7 @@ public final class SysArgs {
      *
      */
     public void parseArgs() throws Throwable {
-        char[] argsArr = this.baseArgs.toCharArray();
+        final char[] argsArr = this.baseArgs.toCharArray();
 
         final HashMap<Character, Boolean> parsedOptions   = new HashMap<>();
         final TreeMap<Character, String> parsedParameters = new TreeMap<>();
@@ -82,13 +82,14 @@ public final class SysArgs {
         int treeIndex = 0;
         final int treeTotal = parsedParameters.size();
         for (int i = 0; i < argsArr.length; i++) {
-            char c = argsArr[i];
+            final char c = argsArr[i];
             if (c == '-') {
                 if (parsedOptions.containsKey(argsArr[i + 1])) {
-                    parsedOptions.replace(c, true);
+                    parsedOptions.replace(argsArr[i + 1], true);
                     i++;
                 } else {
                     System.out.println("Option " + c + "is not applicable");
+                    System.exit(1);
                 }
             } else if (c == ' ') {
                 continue;
@@ -111,12 +112,14 @@ public final class SysArgs {
                                 .toArray()[treeIndex],
                         tillWhite.first());
                 i += tillWhite.second();
+                treeIndex++;
             }
         }
 
         if (treeIndex < treeTotal) {
             System.out.println("Expected " + treeTotal + " parameters, but "
                     + "only got " + treeIndex + '!');
+            System.exit(1);
         }
 
         this.root.call(parsedOptions, parsedParameters);
@@ -126,8 +129,8 @@ public final class SysArgs {
     @Contract(pure = true)
     private static @NotNull Tuple<String, Integer> tillWhitespace(
             final @NotNull String restOfArgString) {
-        char[] cArr      = restOfArgString.toCharArray();
-        int    charCount = 0;
+        final char[] cArr      = restOfArgString.toCharArray();
+        int          charCount = 0;
         StringBuilder finalString = new StringBuilder();
 
         for (char c : cArr) {
