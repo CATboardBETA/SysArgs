@@ -78,7 +78,6 @@ public final class SysArgs {
             }
         }
 
-        // Must start at 1 because size returns count not indices
         int treeIndex = 0;
         final int treeTotal = parsedParameters.size();
         for (int i = 0; i < argsArr.length; i++) {
@@ -108,6 +107,7 @@ public final class SysArgs {
                         Arrays.copyOfRange(argsArr, i, argsArr.length));
                 Tuple<String, Integer> tillWhite = tillWhitespace(restOfArgString);
 
+                System.out.println(parsedParameters);
                 parsedParameters.replace(
                         (Character) parsedParameters
                                 .keySet()
