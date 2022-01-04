@@ -108,13 +108,8 @@ public final class SysArgs {
 
                 String restOfArgString = Arrays.toString(
                         Arrays.copyOfRange(argsArr, i, argsArr.length));
-<<<<<<< Updated upstream
                 Tuple<String, Integer> tillWhite =
                         tillWhitespace(restOfArgString);
-=======
-                //noinspection LongLine
-                Tuple<String, Integer> tillWhite = tillWhitespace(restOfArgString);
->>>>>>> Stashed changes
 
                 System.out.println(parsedParameters);
                 parsedParameters.replace(
