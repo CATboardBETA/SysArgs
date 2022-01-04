@@ -14,13 +14,15 @@ public final class SysArgs {
     /**
      * @param id the 'name' of an option. Example: '3'
      *           would mean "-3", 'x' : '-x', etc
-     * <br><br>
      * @param type if false = option, if true = parameter
      */
     private record ArgumentId(char id, boolean type) {}
 
     /**
-     * Same as python tuples, immutable
+     * Store two completely unrelated values together.
+     *
+     * @param <T1> Type of the first value
+     * @param <T2> Type of the second value
      */
     private record Tuple<T1, T2>(T1 first, T2 second) {}
 
@@ -45,6 +47,7 @@ public final class SysArgs {
      */
     public SysArgs(final String[] args, final SysArgsExecutable root) {
 
+        // Arguments are parsed as a single String object
         StringBuilder joinedArgs = new StringBuilder();
         for (String arg : args) {
             joinedArgs.append(arg).append(" ");
@@ -62,9 +65,9 @@ public final class SysArgs {
      * Any options or parameters added after the fact will be ignored.
      *
      * @throws Throwable when {@link SysArgsExecutable#call(HashMap, TreeMap)}
-     *
      */
     public void parseArgs() throws Throwable {
+        // Easier to parse from chars than single String
         final char[] argsArr = this.baseArgs.toCharArray();
 
         final HashMap<Character, Boolean> parsedOptions   = new HashMap<>();
@@ -105,7 +108,13 @@ public final class SysArgs {
 
                 String restOfArgString = Arrays.toString(
                         Arrays.copyOfRange(argsArr, i, argsArr.length));
+<<<<<<< Updated upstream
+                Tuple<String, Integer> tillWhite =
+                        tillWhitespace(restOfArgString);
+=======
+                //noinspection LongLine
                 Tuple<String, Integer> tillWhite = tillWhitespace(restOfArgString);
+>>>>>>> Stashed changes
 
                 System.out.println(parsedParameters);
                 parsedParameters.replace(
